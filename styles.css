@@ -1,69 +1,118 @@
-* {
-    margin: 0;
+ *{
+ margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+
+body{
     font-family: Arial, sans-serif;
     background: #f0f0f0;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* GRID-контейнер для всей страницы */
-.container {
-    width: 800px;
+
+/*  GRID-контейнер для всей страницы  */
+.container{
+    width: 950px;
     height: 600px;
-    border: 2px solid #000;
+    border: 3px solid #000000ce;
     background: #fff;
+
+    display: grid;
+    grid-template-rows: 60px 1fr 40px; 
+    grid-template-columns: 250px 1fr;   
+    grid-template-areas:
+        "header header"
+        "chat-list chat-window"
+        "footer footer";
 }
 
-/* Хедер (флекс) */
-.header {
-    background: #ddd;
-    padding: 10px;
+
+/*  Хедер (флекс)  */
+.header{
+    grid-area: header;
+    background: #cfcfcf;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Боковое меню чатов */
-.chat-list {
-    background: #f4f4f4;
-    padding: 10px;
+
+/*  Боковое меню чатов  */
+.chat-list{
+    grid-area: chat-list;
+    background: #ffffff;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Главное окно чата */
-.chat-window {
-    background: #fff;
-    padding: 10px;
+
+
+/*  Главное окно чата  */
+.chat-window{
+    grid-area: chat-window;
+    background: #fdfdfd;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Сообщения */
-.messages {
+
+/*  Сообщения  */
+.messages{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    gap: 15px;
     overflow-y: auto;
     background: #eaeaea;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-/* Отдельное сообщение */
+
+/*  Отдельное сообщение  */
 .message {
+    display: flex;
+    align-self: flex-start;
     background: #cce5ff;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* Поле ввода */
+
+.message--foreign{
+    align-self: flex-end;
+    background: #cce5ff;
+}
+
+
+
+/*  Поле ввода  */
 .message-input {
-    width: 100%;
-    padding: 10px;
+    width: 102%;
+    padding: 15px;
 }
 
-/* Футер */
-.footer {
-    background: #ddd;
-    padding: 10px;
+
+/*  Футер  */
+.footer{
+    grid-area: footer;
+    background: #f5f1f1;
+    padding: 15px;
     text-align: center;
 }
 
-ul {
+
+ul{
     list-style: none;
 }
